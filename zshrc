@@ -2,8 +2,11 @@
 clear
 
 # Custom banner
-figlet "Mohan" | lolcat
-echo "Welcome back to Termux!" | lolcat
+if [[ $- == *i* ]]; then
+    clear
+    figlet "Mohan"
+    toilet "Welcome!"
+fi
 
 # Prompt (username@host:path)
 PROMPT='%F{cyan}%n%f@%F{magenta}%m%f:%F{yellow}%~%f %# '
