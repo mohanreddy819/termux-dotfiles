@@ -3,7 +3,7 @@
 echo "📦 Installing Termux rice..."
 
 # Copy zshrc
-cp zshrc ~/.zshrc
+cp .zshrc ~/.zshrc
 
 # Copy Termux configs
 mkdir -p ~/.termux

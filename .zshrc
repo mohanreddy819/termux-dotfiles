@@ -2,26 +2,27 @@
 if [[ $- == *i* ]]; then
     clear
 
-    # Optional: simple ASCII banner without lolcat
-    figlet -f small "mohan"
+    DATE_MSG=$(date +"%A, %d %B %Y")
+    CUSTOM_MSG="Welcome back.🌿"
 
-    # Optional: decorative box using colors (ANSI only)
-    echo -e "\033[33m-================= ≫ ──── ≪•◦ ❈ ◦•≫ ──── ≪=================-\033[0m"
-    echo -e "\033[33m│                                                          │\033[0m"
-    echo -e "\033[33m│                                                          │\033[0m"
-    echo -e "\033[33m╰─━━━━━━━━━━━━━━━━━━━━━━━━Termux-os━━━━━━━━━━━━━━━━━━━━━━─╯\033[0m"
+    # Top border
+    echo -e "\033[38;5;214m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m"
 
-    # Prompt will come below
+    # "mohan" in ASCII art inside box
+    figlet -f small "mohan" | lolcat | sed 's/^/│  /'
+
+    # Spacer
+    echo -e "│\033[0m"
+
+    # Date + message inside box
+    echo -e "│  $DATE_MSG"   | lolcat
+    echo -e "│  $CUSTOM_MSG" | lolcat
+
+    # Bottom border
+    echo -e "\033[38;5;214m╰-=-=-=-=-=-=-=-=-=-=-=-=-Termux-=-=-=-=-=-=-=-=-=-=-=-=-╯\033[0m"
+
+    echo ""
 fi
-
-# # Zsh theme + plugins
-# export ZSH=$HOME/.oh-my-zsh
-# ZSH_THEME="h4Ck3r"
-# plugins=(git)
-
-# source $HOME/.oh-my-zsh/oh-my-zsh.sh
-# source $HOME/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source $HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
 alias ll='ls -la --color=auto'
