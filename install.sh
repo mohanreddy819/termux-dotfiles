@@ -9,6 +9,7 @@ cp .zshrc ~/.zshrc
 mkdir -p ~/.termux
 cp -r termux/* ~/.termux/
 
+chsh -s zsh # Change default shell to zsh
 # Reload Termux settings
 termux-reload-settings
 
