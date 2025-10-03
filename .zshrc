@@ -15,8 +15,8 @@ if [[ $- == *i* ]]; then
     echo -e "│\033[0m"
 
     # Date + message inside box
-    echo -e "│  $DATE_MSG"   | lolcat
-    echo -e "│  $CUSTOM_MSG" | lolcat
+    echo -e "│  $DATE_MSG   |"   | lolcat
+    echo -e "│  $CUSTOM_MSG |" | lolcat
 
     # Bottom border
     echo -e "\033[38;5;214m╰-=-=-=-=-=-=-=-=-=-=-=-=-Termux-=-=-=-=-=-=-=-=-=-=-=-=-╯\033[0m"
