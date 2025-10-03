@@ -5,21 +5,29 @@ if [[ $- == *i* ]]; then
     DATE_MSG=$(date +"%A, %d %B %Y")
     CUSTOM_MSG="Welcome back.🌿"
 
-    # Top border
-    echo -e "\033[38;5;214m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\033[0m"
+# Define width of the box
+BOX_WIDTH=70
+DATE_MSG=$(date +"%A, %d %B %Y")
+CUSTOM_MSG="Welcome back to your Gruvbox Termux 🌿"
 
-    # "mohan" in ASCII art inside box
-    figlet -f small "mohan" | lolcat | sed 's/^/│  /'
+# Top border
+printf "\033[38;5;214m╭%0.s─" $(seq 1 $BOX_WIDTH); printf "╮\033[0m\n"
 
-    # Spacer
-    echo -e "│\033[0m"
+# "mohan" ASCII art inside box (with padding + borders)
+figlet -f small "mohan" | while IFS= read -r line; do
+    printf "\033[38;5;142m│ %-*s │\033[0m\n" $BOX_WIDTH "$line" | lolcat
+done
 
-    # Date + message inside box
-    echo -e "│  $DATE_MSG   |"   | lolcat
-    echo -e "│  $CUSTOM_MSG |" | lolcat
+# Spacer
+printf "\033[38;5;142m│ %-*s │\033[0m\n" $BOX_WIDTH " " | lolcat
 
-    # Bottom border
-    echo -e "\033[38;5;214m╰-=-=-=-=-=-=-=-=-=-=-=-=-Termux-=-=-=-=-=-=-=-=-=-=-=-=-╯\033[0m"
+# Date + message inside box
+printf "\033[38;5;142m│ %-*s │\033[0m\n" $BOX_WIDTH "$DATE_MSG"   | lolcat
+printf "\033[38;5;142m│ %-*s │\033[0m\n" $BOX_WIDTH "$CUSTOM_MSG" | lolcat
+
+# Bottom border
+printf "\033[38;5;214m╰%0.s─" $(seq 1 $BOX_WIDTH); printf "╯\033[0m\n\n"
+
 
     echo ""
 fi
