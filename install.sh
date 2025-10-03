@@ -1,16 +1,20 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
 
-echo "📦 Installing Termux rice..."
+echo "Setting up the Termux app theme and shell (Host)..."
 
-# Copy zshrc
-cp .zshrc ~/.zshrc
-
-# Copy Termux configs
+# Create the .termux directory if it doesn't exist
 mkdir -p ~/.termux
-cp -r termux/* ~/.termux/
 
-chsh -s zsh # Change default shell to zsh
-# Reload Termux settings
+# Copy the font and colors
+#cp ./termux/font.ttf ~/.termux/font.ttf
+cp ./termux/colors.properties ~/.termux/colors.properties
+
+# Reload Termux settings to apply theme changes
 termux-reload-settings
 
-echo "✅ Installation complete! Restart Termux to see changes."
+# --- THIS IS THE KEY ---
+# Set Zsh as the default shell for the Termux user
+echo "Setting Zsh as the default shell for Termux..."
+chsh -s zsh
+
+echo "Termux host configured. Please restart Termux to log into Debian automatically."
