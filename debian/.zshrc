@@ -45,9 +45,9 @@ add-zsh-hook precmd _set_cmd_duration
 # --- Gruvbox Color Definitions ---
 GRUV_BG0="%K{0}"      # dark gray
 GRUV_BG_BLUE="%K{12}" # blue
-GRUV_BG_GREEN="%K{10}"# green
+GRUV_BG_GREEN="%K{10}" # green
 GRUV_BG_RED="%K{9}"   # red
-GRUV_FG_LIGHT="%F{15}"# light
+GRUV_FG_LIGHT="%F{15}" # light
 GRUV_FG_GRAY="%F{8}"  # gray
 GRUV_FG_DARK="%F{0}"  # black
 RESET_COLORS="%f%k"
@@ -78,7 +78,7 @@ ARROW_RIGHT=""
 
 # --- Gruvbox Powerline Prompt (ACTIVE) ---
 PROMPT="%{$GRUV_BG0%G%F{15}%} %n@debian %{$RESET_COLORS%G%F{0}%}$ARROW_RIGHT%{$GRUV_BG_BLUE%G%F{0}%} %~ %{$RESET_COLORS%G%F{12}%}$ARROW_RIGHT\$(git_prompt_info)%{$RESET_COLORS%} "
-PROMPT+="\n%{$GRUV_FG_GRAY%}❯%{$RESET_COLORS%} "
+PROMPT+=$'\n'"%{$GRUV_FG_GRAY%}❯%{$RESET_COLORS%} "
 
 # --- Custom Right-Side Prompt (ACTIVE) ---
 # This will show up on the right side of the first line of the prompt.
