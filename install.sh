@@ -6,7 +6,7 @@ echo "Setting up the Termux app theme and shell (Host)..."
 mkdir -p ~/.termux
 
 # Copy the font and colors
-#cp ./termux/font.ttf ~/.termux/font.ttf
+cp ./termux/font.ttf ~/.termux/font.ttf
 cp ./termux/colors.properties ~/.termux/colors.properties
 
 # Reload Termux settings to apply theme changes
