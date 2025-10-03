@@ -27,3 +27,25 @@ fi
 # Aliases
 alias ll='ls -la --color=auto'
 alias cls='clear'
+
+# ============================
+# Custom Zsh Prompt
+# ============================
+
+# Colors
+RED="%F{1}"
+GREEN="%F{2}"
+YELLOW="%F{3}"
+BLUE="%F{4}"
+MAGENTA="%F{5}"
+CYAN="%F{6}"
+RESET="%f"
+
+# Git branch function
+git_branch() {
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  [ -n "$branch" ] && echo "  $branch"
+}
+
+# Custom prompt
+PROMPT="${MAGENTA}[${CYAN}%n${GREEN}@termux${MAGENTA}]${RESET} ${YELLOW}%~${RESET}\$(git_branch)\n${BLUE}>>> ${RESET}"
