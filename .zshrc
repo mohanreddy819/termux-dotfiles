@@ -1,0 +1,1 @@
+proot-distro login debian # direect login to debian
