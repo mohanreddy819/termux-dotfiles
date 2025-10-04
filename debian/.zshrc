@@ -1,8 +1,12 @@
 # --- Zsh History Settings ---
-setopt APPEND_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE SHARE_HISTORY
-HISTFILE=~/.zsh_history
+HISTFILE=/data/data/com.termux/files/home/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+setopt APPEND_HISTORY      # Append to the history file, don't overwrite
+setopt HIST_IGNORE_DUPS    # Don't save duplicate commands
+setopt HIST_IGNORE_SPACE   # Don't save commands starting with a space
+setopt INC_APPEND_HISTORY  # Write to the history file immediately after each command
+setopt SHARE_HISTORY 
 
 # --- Aliases ---
 alias ll='ls -la --color=auto'
