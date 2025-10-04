@@ -9,6 +9,7 @@ mkdir -p ~/.termux
 cp ./termux/font.ttf ~/.termux/font.ttf
 cp ./termux/colors.properties ~/.termux/colors.properties
 
+proot-distro login debian # direect login to debian
 # Reload Termux settings to apply theme changes
 termux-reload-settings
 
