@@ -11,11 +11,11 @@ cp ./termux/colors.properties ~/.termux/colors.properties
 
 proot-distro login debian # direect login to debian
 # Reload Termux settings to apply theme changes
-termux-reload-settings
-
-# --- THIS IS THE KEY ---
-# Set Zsh as the default shell for the Termux user
 echo "Setting Zsh as the default shell for Termux..."
 chsh -s zsh
 
 echo "Termux host configured. Please restart Termux to log into Debian automatically."
+termux-reload-settings
+
+# --- THIS IS THE KEY ---
+# Set Zsh as the default shell for the Termux user
