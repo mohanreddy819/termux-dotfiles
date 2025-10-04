@@ -58,15 +58,31 @@ RPROMPT='%F{magenta}Debian%f  %F{red}⌛ ${LAST_CMD_DURATION}s%f'
 #  BANNER
 # ===================================================================
 if [[ $- == *i* ]]; then
-    # OPTIMIZED: This entire block runs only two main processes (figlet, lolcat)
-    # instead of three, and avoids the slow 'tte wipe' animation.
+    # Get the full terminal width
+    local width=$(tput cols)
+
+    # Center the entire output block with lolcat
     {
-        figlet -f slant 'Welcome!'
-        echo
-        echo "   Zsh Version: $ZSH_VERSION"
-        [ -n "$TERMUX_VERSION" ] && echo "   Termux Version: $TERMUX_VERSION"
-        echo " 󰆧  Installed Packages: $(dpkg -l | grep '^ii' | wc -l)"
-        echo " ⚡ ALL PROCESSES ARE ONLINE"
+        # Use figlet's built-in centering
+        figlet -f slant -c -w "$width" 'Welcome!'
+
+        echo # Blank line for spacing
+
+        # --- Center each line of text manually ---
+        # Store the text of each line in a variable
+        local zsh_line="  Zsh Version: $ZSH_VERSION"
+        local termux_line=""
+        [ -n "$TERMUX_VERSION" ] && termux_line="  Termux Version: $TERMUX_VERSION"
+        local pkg_line="󰆧  Installed Packages: $(dpkg -l | grep '^ii' | wc -l)"
+        local status_line="⚡ ALL PROCESSES ARE ONLINE"
+
+        # Calculate padding and print each line centered
+        printf "%*s\n" $(( (${#zsh_line} + width) / 2 )) "$zsh_line"
+        [ -n "$termux_line" ] && printf "%*s\n" $(( (${#termux_line} + width) / 2 )) "$termux_line"
+        printf "%*s\n" $(( (${#pkg_line} + width) / 2 )) "$pkg_line"
+        printf "%*s\n" $(( (${#status_line} + width) / 2 )) "$status_line"
+
     } | lolcat
-    echo
+
+    echo # Final blank line for spacing
 fi
