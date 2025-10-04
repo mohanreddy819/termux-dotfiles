@@ -58,18 +58,16 @@ RPROMPT='%F{magenta}Debian%f  %F{red}⌛ ${LAST_CMD_DURATION}s%f'
 #  BANNER
 # ===================================================================
 if [[ $- == *i* ]]; then
-    # Get the full terminal width
+    # terminal width
     local width=$(tput cols)
 
     # Center the entire output block with lolcat
     {
-        # Use figlet's built-in centering
+        
         figlet -f slant -c -w "$width" 'Welcome!'
 
-        echo # Blank line for spacing
+        echo # Blank line 
 
-        # --- Center each line of text manually ---
-        # Store the text of each line in a variable
         local zsh_line="  Zsh Version: $ZSH_VERSION"
         local termux_line=""
         [ -n "$TERMUX_VERSION" ] && termux_line="  Termux Version: $TERMUX_VERSION"
@@ -84,5 +82,5 @@ if [[ $- == *i* ]]; then
 
     } | lolcat
 
-    echo # Final blank line for spacing
+    echo # Final blank line
 fi

@@ -2,21 +2,20 @@
 
 echo "Setting up the Termux app theme and shell (Host)..."
 
-# Create the .termux directory if it doesn't exist
+# creating the directory
 mkdir -p ~/.termux
 
-# Copy the font and colors
+# Copy the content
 cp ./termux/font.ttf ~/.termux/font.ttf
 cp ./termux/colors.properties ~/.termux/colors.properties
+cp ./termux/termux.properties ~/.termux/termux.properties
 
-# Reload Termux settings to apply theme changes
+# making it default
 echo "Setting Zsh as the default shell for Termux..."
 cp ./.zshrc ~/.zshrc
 chsh -s zsh
 
 echo "Termux host configured. Please restart Termux to log into Debian automatically."
 
+# reload settings
 termux-reload-settings
-
-# --- THIS IS THE KEY ---
-# Set Zsh as the default shell for the Termux user
